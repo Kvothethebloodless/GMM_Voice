@@ -18,7 +18,15 @@ def get_test_data():
 def vert_cat(Data,n_classes,n_dims):
     sizes_dataelems = np.array([(np.shape(ele))[0] for ele in Data]);
     no_samples = np.sum(sizes_dataelems);
-    all_samples = np.empty(no_samples,)
+    alldata_samples = np.empty(no_samples,n_dims):
+    indx =0;
+    for i in range(n_clasess):
+        alldata_samples[indx:indx+sizes_dataelems[i]] = Data[i];
+        indx = indx+sizes_dataelems[i];
+    if(indx-1==no_samples):
+        print('success!')
+    return(alldata_samples)
+
 def get_labels(Data,n_classes):
     sizes_dataelems = np.array([(np.shape(ele))[0] for ele in Data]);
     no_samples = np.sum(sizes_dataelems);
