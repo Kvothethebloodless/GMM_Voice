@@ -31,15 +31,15 @@ def receive_data():
     (test_data,train_data) = get_test_data()
 
     (test_labels,test_class_sizes) = get_labels(test_data,10);
-    (train_labels,test_class_sizes) = get_labels(train_data,10);
+    (train_labels,train_class_sizes) = get_labels(train_data,10);
 
     all_test_data = vert_cat(test_data,10,60);
     all_train_data = vert_cat(train_data,10,60);
 
     all_test_data = np.hstack((all_test_data,test_labels));
-    all_train_data = np.hstack((all_test_data,test_labels));
+    all_train_data = np.hstack((all_train_data,train_labels));
 
-    return((all_train_data,all_test_data))
+    return((all_train_data,all_test_data),(train_class_sizes,test_class_sizes))
 
 
 
